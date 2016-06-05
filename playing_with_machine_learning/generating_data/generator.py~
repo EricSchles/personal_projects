@@ -1,0 +1,13 @@
+import math
+import random
+def random_number():
+    i = random.randint(0,10000)
+    return sum([1/(16**elem)*( (float(4)/(8*elem+1)) - (float(2)/(8*elem+4)) - (float(1)/(8*elem +5)) - (float(1)/(8*elem + 6)) ) for elem in xrange(i)])
+
+def number():
+    i = random.randint(0,10000)
+    for elem in xrange(i):
+        print (float(1)/float(16**elem))*( (float(4)/(8*elem+1)) - (float(2)/(8*elem+4)) - (float(1)/(8*elem +5)) - (float(1)/(8*elem + 6)) )
+
+if __name__ == '__main__':
+    print number()

@@ -1,0 +1,34 @@
+from multiprocessing import Pool,Manager
+
+#credit to: http://stackoverflow.com/questions/23287/largest-prime-factor-of-a-number
+def prime_factors(n,dicter):
+    factors = []
+    d = 2
+    while n > 1:
+        while n % d == 0:
+            factors.append(d)
+            n //=d
+        d += 1
+        if d*d > n:
+            if n >1: factors.append(n)
+            break
+    dicter[len(factors)] += 1
+
+def processing(size):
+    pool = Pool
+    manager = Manager()
+    dicter = manager.dict()
+    i = 0
+    while i < size:
+        pool.appy_async(prime_factors,args=(i,dicter,))
+    return dicter
+
+def main():
+    for size in [10,100,1000,10000,100000,1000000]:
+        processing(size)
+    for key in dicter.keys():
+        print(key)
+        print(dicter[key])
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,19 @@
+from timing.timer import timeit
+
+@timeit
+def fib(x):
+    if x == 1:
+        return 1
+    if x == 0:
+        return 1
+    else:
+        return fib(x-1) + fib(x-2)
+
+@timeit
+def fib2(x,q):
+    listing = [1,1]
+    for ind,val in enumerate(range(2,x+1)):
+        listing.append(listing[ind-1] + listing[ind-2])
+    q.put(listing[x])
+
+

@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+
+class Node{
+public:
+  int data;
+  Node *next;
+  Node(int data, Node *next){
+    this->data = data;
+    this->next = next;
+  }
+  void pprint(){ cout << this->data << endl; }
+};
+
+class LinkedList{
+public:
+  Node *head;
+  LinkedList(){
+    Node *head = new Node(-1,NULL);
+  }
+  void append(int data);
+  void pprint();
+};
+
+void LinkedList::append(int data)
+{
+  cout << "got here" << endl;
+  if (this->head == NULL){
+    cout << "Got here" << endl;
+    this->head = new Node(data,NULL);
+    cout << "Got here" << endl;
+    cout << this->head->data;
+    this->head->pprint();
+  }else{
+    Node *cur = this->head;
+    while(cur->next != NULL){
+      cur = cur->next;
+    }
+    Node *newNode = new Node(data,NULL);
+    cur->next = newNode;
+  }
+}
+
+void LinkedList::pprint(){
+  this->head->pprint();
+  Node *cur = this->head;
+  while (cur->next != NULL){
+    cout << cur->data << endl;
+    cur = cur->next;
+  }
+}
+
+int main()
+{
+  //Node *head = new Node(5,NULL);
+  //head->pprint();
+
+  LinkedList ll;
+  ll.append(5);
+  ll.append(7);
+  //ll.pprint();
+  //LinkedList ll;
+  //ll.append(5);
+  /* 
+  //works
+  Node *head = new Node(0,NULL);
+  Node *cur = head;
+
+  //appending values
+  for ( int i = 0; i < 10; i++){
+    Node *tmp = new Node(i,NULL);
+    cur->next = tmp;
+    cur = cur->next;
+  }
+  cur = head;
+  while(cur != NULL){
+    cout << cur->data << endl;
+    cur = cur->next;
+    }*/
+  return 0;
+}

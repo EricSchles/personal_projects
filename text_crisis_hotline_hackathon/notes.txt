@@ -1,0 +1,23 @@
+##Mandatory Reporting
+
+* Required to report if abuse is heard 
+	* Teachers
+	* Consoulers
+	* 
+
+Challenge:
+
+* Who is a mandatory reporter?  Varies by state.
+* Is all the right information available? - Build a crud app
+	* Who do you report to? - 
+	* What do you report on? - (Make a data standard)
+	* Make UX better (currently sucks) 
+
+* Share best practices for mandatory reporters?
+
+
+RAIN - Rape Abuse
+
+We are from the frame of mind of a crisis center.  Could also be a teacher, ems, gov't entity.
+
+Who needs to report?  By state.

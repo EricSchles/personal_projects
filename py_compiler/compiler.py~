@@ -1,0 +1,11 @@
+#if split_line[0] == '':
+def determine_offset(line):
+    split_line = line.split(' ')
+    
+    
+        while
+        
+def tokenize(line):
+    
+def main(code):
+    

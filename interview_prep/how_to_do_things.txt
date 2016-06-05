@@ -1,0 +1,9 @@
+http://dba.stackexchange.com/questions/44956/good-explanation-of-cascade-on-delete-update-behavior
+--meaning of on cascade in django
+
+http://stackoverflow.com/questions/3038459/django-template-path
+http://stackoverflow.com/questions/6583877/how-to-override-and-extend-basic-django-admin-templates
+--how to override default template behavior in django (allows you to rewrite the root web page in a django app)
+
+http://stackoverflow.com/questions/5750150/invalid-django-time-zone
+--setting the timezone to new york

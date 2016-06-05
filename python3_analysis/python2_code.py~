@@ -1,0 +1,20 @@
+print("Hello there")
+
+def thing(x):
+    return repr(x*x)
+
+print(thing(5))
+
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+    def __str__(self):
+        return repr(self.data)
+
+head = Node(0)
+cur = head
+cur.next = Node(1)
+while cur:
+    print(cur)
+    cur = cur.next

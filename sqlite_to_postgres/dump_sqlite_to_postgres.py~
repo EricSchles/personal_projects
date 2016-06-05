@@ -1,0 +1,10 @@
+from app.models import *
+
+def get_models():
+    gb = globals()
+    models = {}
+    for key in gb.keys():
+        if not "__" in key:
+            models[key] = gb[key]
+    return models
+

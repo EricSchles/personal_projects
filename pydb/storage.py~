@@ -1,0 +1,5 @@
+import pickle
+import pandas as pd
+
+df = pd.DataFrame()
+pickle.dump(df,open("testfile.pickle","w"))

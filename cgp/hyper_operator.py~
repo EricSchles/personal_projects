@@ -1,0 +1,4 @@
+import code
+
+def debug():
+    code.interact(local=locals())

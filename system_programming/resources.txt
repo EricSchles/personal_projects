@@ -1,0 +1,5 @@
+http://beej.us/guide/bgnet/output/html/multipage/index.html
+
+http://poincare.matf.bg.ac.rs/~ivana//courses/ps/sistemi_knjige/pomocno/apue.pdf
+
+http://compsci.hunter.cuny.edu/~sweiss/course_materials/unix_lecture_notes/chapter_01.pdf
