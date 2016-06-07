@@ -4,6 +4,7 @@ import heapq
 import random
 import time
 
+#all this comes from: http://www.redblobgames.com/pathfinding/a-star/implementation.html
 class SimpleGraph:
     def __init__(self):
         self.edges = {}
@@ -215,7 +216,36 @@ def grid_excluding_walls(width,height,walls):
             total_grid.append((x,y))
     [total_grid.remove(wall) for wall in walls]
     return total_grid
-    
+
+def heuristic(a,b):
+    (x1,y1) = a
+    (x2,y2) = b
+    return abs(x1 - x2) + abs(y1 - y2)
+
+def a_star_search(graph,start,goal):
+    already_seen = PriorityQueue()
+    already_seen.put(start,0)
+    came_from, cost_so_far = {},{}
+    came_from[start] = None
+    cost_so_far[start] = 0
+
+    while not already_seen.empty():
+        current = already_seen.get()
+
+        if current ==goal:
+            break
+
+        for next in graph.neighbors(current):
+            new_cost = cost_so_far[current] + graph.cost(current,next)
+            if next not in cost_so_far or new_cost < cost_so_far[next]:
+                cost_so_far[next] = new_cost
+                priority = new_cost + heuristic(goal,next)
+                already_seen.put(next,priority)
+                came_from[next] = current
+    return came_from, cost_so_far
+
+
+#from implementation import diagram4
 g = GridWithWeights(30,15)
 g.walls = process_grid(grid)
 walls = {loc:50 for loc in g.walls}
@@ -224,11 +254,18 @@ weights = other_weights
 weights.update(walls)       
 g.weights = weights
 
-total_grid = gen_grid(30,15)
-came_from, cost_so_far = dijkstra(g, (1, 4), (7, 8),total_grid)
-if (7,8) in came_from:
-    print("found")
-print(" -> ".join([",".join([str(elem[0]),str(elem[1])]) for elem in came_from]))
+came_from, cost_so_far = a_star_search(g, (1, 4), (7, 8))
+draw_grid(g, width=3, point_to=came_from, start=(1, 4), goal=(7, 8))
+print()
+draw_grid(g, width=3, number=cost_so_far, start=(1, 4), goal=(7, 8))
+
+
+
+# total_grid = gen_grid(30,15)
+# came_from, cost_so_far = dijkstra(g, (1, 4), (7, 8),total_grid)
+# if (7,8) in came_from:
+#     print("found")
+# print(" -> ".join([",".join([str(elem[0]),str(elem[1])]) for elem in came_from]))
 #for key in cost_so_far:
 #    print(str(key)+":"+str(cost_so_far[key]))
 # draw_grid(g, width=3, point_to=came_from, start=(1, 4), goal=(7, 8))
